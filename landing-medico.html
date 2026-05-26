@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Rafael Mendes — Cardiologista em Curitiba | Consultas e Exames</title>
+<meta name="description" content="Dr. Rafael Mendes, cardiologista com mais de 15 anos de experiência em Curitiba. Agende sua consulta e cuide do seu coração com quem entende.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0D2340;
+  --blue: #1A4A7A;
+  --accent: #C8974A;
+  --light: #F7F9FC;
+  --text: #1C1C2E;
+  --muted: #6B7280;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 6%; height: 70px;
+}
+.logo { display: flex; flex-direction: column; }
+.logo-name { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); }
+.logo-title { font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--accent); color: white; font-size: 14px; font-weight: 500;
+  padding: 10px 22px; border-radius: 6px; text-decoration: none; transition: opacity .2s;
+}
+.nav-cta:hover { opacity: .88; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 6% 80px;
+  background: linear-gradient(135deg, #F7F9FC 50%, #EAF0F8 100%);
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; right: 0; top: 0;
+  width: 45%; height: 100%;
+  background: var(--navy);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero-content { max-width: 560px; position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #EAF0F8; color: var(--blue); font-size: 12px; font-weight: 500;
+  padding: 6px 14px; border-radius: 4px; margin-bottom: 1.5rem; letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  line-height: 1.12; margin-bottom: 1.25rem; color: var(--navy);
+}
+.hero h1 span { color: var(--accent); }
+.hero p { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 460px; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: white; font-size: 15px; font-weight: 500;
+  padding: 14px 30px; border-radius: 6px; text-decoration: none; transition: all .2s;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; color: var(--navy); font-size: 15px;
+  padding: 14px 30px; border-radius: 6px; text-decoration: none;
+  border: 1.5px solid var(--navy); transition: all .2s;
+}
+.btn-secondary:hover { background: var(--navy); color: white; }
+.hero-stats { display: flex; gap: 40px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.hero-img {
+  position: absolute; right: 0; top: 0; width: 45%; height: 100%; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.doctor-card {
+  background: white; border-radius: 16px; padding: 2rem; margin-right: 8%;
+  width: 260px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.doctor-avatar {
+  width: 80px; height: 80px; border-radius: 50%; background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 28px; color: white; margin-bottom: 1rem;
+}
+.doctor-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+.doctor-card p { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; }
+.crm-badge {
+  background: #EAF0F8; color: var(--blue); font-size: 11px; font-weight: 500;
+  padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 1rem;
+}
+.rating { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.stars { color: #F4A832; }
+
+/* SECTION */
+.section { padding: 100px 6%; }
+.section-tag { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; margin-bottom: 1rem; color: var(--navy); }
+.section-sub { font-size: 15px; color: var(--muted); max-width: 520px; line-height: 1.75; font-weight: 300; }
+
+/* SERVICES */
+.services { background: var(--light); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 3rem; }
+.service-card {
+  background: white; border-radius: 12px; padding: 2rem;
+  border: 1px solid rgba(0,0,0,0.06); transition: all .25s;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(13,35,64,0.10); }
+.service-icon {
+  width: 52px; height: 52px; border-radius: 10px; background: #EAF0F8;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 1.25rem;
+}
+.service-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: .5rem; color: var(--navy); }
+.service-card p { font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 3rem; }
+@media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+.about-visual {
+  background: var(--navy); border-radius: 16px; padding: 2.5rem;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.about-stat { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+.about-stat:last-child { border-bottom: none; padding-bottom: 0; }
+.about-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--accent); }
+.about-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+.about-text p { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+.about-text p:last-child { margin-bottom: 0; }
+.formation { margin-top: 1.5rem; }
+.formation-item { display: flex; gap: 14px; margin-bottom: 16px; }
+.formation-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 5px; flex-shrink: 0; }
+.formation-title { font-size: 14px; font-weight: 500; color: var(--navy); }
+.formation-sub { font-size: 13px; color: var(--muted); }
+
+/* TESTIMONIALS */
+.testimonials { background: var(--light); }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 3rem; }
+.testi-card { background: white; border-radius: 12px; padding: 1.75rem; border: 1px solid rgba(0,0,0,0.05); }
+.quote { font-size: 32px; color: var(--accent); font-family: 'Playfair Display', serif; line-height: 1; margin-bottom: .5rem; }
+.testi-text { font-size: 14px; color: var(--text); line-height: 1.75; font-weight: 300; margin-bottom: 1.25rem; font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: 500; }
+.author-name { font-size: 14px; font-weight: 500; color: var(--navy); }
+.author-sub { font-size: 12px; color: var(--muted); }
+
+/* CTA */
+.cta-section { background: var(--navy); color: white; text-align: center; padding: 100px 6%; }
+.cta-section .section-tag { color: var(--accent); }
+.cta-section .section-title { color: white; }
+.cta-section p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 1rem auto 2.5rem; font-weight: 300; }
+.btn-gold { background: var(--accent); color: white; font-size: 15px; font-weight: 500; padding: 15px 36px; border-radius: 6px; text-decoration: none; transition: all .2s; display: inline-block; }
+.btn-gold:hover { opacity: .88; transform: translateY(-1px); }
+.contact-info { display: flex; justify-content: center; gap: 40px; margin-top: 3rem; flex-wrap: wrap; }
+.contact-item { font-size: 14px; color: rgba(255,255,255,0.6); }
+.contact-item strong { color: white; display: block; margin-bottom: 4px; }
+
+/* FOOTER */
+footer { background: #07131F; color: rgba(255,255,255,0.4); font-size: 12px; text-align: center; padding: 1.5rem 6%; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero::after { display: none; }
+  .hero-img { display: none; }
+  .hero-stats { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-name">Dr. Rafael Mendes</div>
+    <div class="logo-title">Cardiologista • CRM-PR 45.231</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Agendar Consulta</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Cardiologista • Curitiba, PR</div>
+    <h1>Cuidando do seu coração com <span>excelência</span> e dedicação</h1>
+    <p>Diagnóstico preciso, tratamento humanizado e acompanhamento completo para a saúde do seu coração. Atendimento presencial e teleconsulta disponíveis.</p>
+    <div class="hero-btns">
+      <a href="#contato" class="btn-primary">Agendar Consulta</a>
+      <a href="#servicos" class="btn-secondary">Conhecer Serviços</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">+5mil</div><div class="stat-label">Pacientes atendidos</div></div>
+      <div><div class="stat-num">15+</div><div class="stat-label">Anos de experiência</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-label">Satisfação</div></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="doctor-card">
+      <div class="doctor-avatar">RM</div>
+      <h3>Dr. Rafael Mendes</h3>
+      <p>Cardiologista Intervencionista</p>
+      <div class="crm-badge">CRM-PR 45.231</div>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span>4.9 (312 avaliações)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servicos">
+  <div class="section-tag">Serviços</div>
+  <h2 class="section-title">Cuidado completo para o seu coração</h2>
+  <p class="section-sub">Oferecemos uma gama completa de serviços cardiológicos com tecnologia de ponta e atendimento personalizado.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🫀</div>
+      <h3>Consulta Cardiológica</h3>
+      <p>Avaliação completa do sistema cardiovascular com histórico detalhado e exame físico minucioso.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Eletrocardiograma</h3>
+      <p>Análise da atividade elétrica do coração para detecção precoce de arritmias e outras alterações.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Ecocardiograma</h3>
+      <p>Imagem detalhada do coração por ultrassom para avaliação de estrutura e função cardíaca.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <h3>Teleconsulta</h3>
+      <p>Atendimento online seguro e prático para acompanhamento e orientações sem sair de casa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="section-tag">Sobre o médico</div>
+  <h2 class="section-title">Experiência e dedicação à sua saúde</h2>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-stat">
+        <div class="about-stat-num">2008</div>
+        <div class="about-stat-label">Ano de formação — USP</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">+5.000</div>
+        <div class="about-stat-label">Pacientes acompanhados</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">3</div>
+        <div class="about-stat-label">Especializações concluídas</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>O Dr. Rafael Mendes é cardiologista intervencionista formado pela Universidade de São Paulo, com residência médica no Hospital das Clínicas e fellowship em Cardiologia Intervencionista no Instituto do Coração (InCor).</p>
+      <p>Com mais de 15 anos de experiência, é reconhecido pelo atendimento humanizado e pela busca constante por atualização científica, participando regularmente de congressos nacionais e internacionais.</p>
+      <div class="formation">
+        <div class="formation-item">
+          <div class="formation-dot"></div>
+          <div><div class="formation-title">Medicina — Universidade de São Paulo</div><div class="formation-sub">Graduação • 2002–2008</div></div>
+        </div>
+        <div class="formation-item">
+          <div class="formation-dot"></div>
+          <div><div class="formation-title">Residência em Cardiologia — HC-USP</div><div class="formation-sub">Especialização • 2009–2011</div></div>
+        </div>
+        <div class="formation-item">
+          <div class="formation-dot"></div>
+          <div><div class="formation-title">Fellowship em Cardiologia Intervencionista — InCor</div><div class="formation-sub">Subespecialização • 2012–2013</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="depoimentos">
+  <div class="section-tag">Depoimentos</div>
+  <h2 class="section-title">O que nossos pacientes dizem</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="quote">"</div>
+      <p class="testi-text">O Dr. Rafael foi extremamente atencioso e detalhista. Saí da consulta com todas as minhas dúvidas respondidas e um plano de tratamento muito claro.</p>
+      <div class="testi-author">
+        <div class="avatar">MC</div>
+        <div><div class="author-name">Maria C.</div><div class="author-sub">Paciente há 3 anos</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="quote">"</div>
+      <p class="testi-text">Profissional excepcional. Identificou um problema que outros médicos não haviam detectado. Hoje estou muito melhor graças ao seu acompanhamento.</p>
+      <div class="testi-author">
+        <div class="avatar">JP</div>
+        <div><div class="author-name">José P.</div><div class="author-sub">Paciente há 5 anos</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="quote">"</div>
+      <p class="testi-text">A teleconsulta foi uma surpresa positiva. Muito prática e com a mesma qualidade do atendimento presencial. Recomendo sem hesitar.</p>
+      <div class="testi-author">
+        <div class="avatar">AS</div>
+        <div><div class="author-name">Ana S.</div><div class="author-sub">Paciente há 1 ano</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contato">
+  <div class="section-tag">Agende sua consulta</div>
+  <h2 class="section-title">Cuide do seu coração hoje</h2>
+  <p>Entre em contato para agendar sua consulta presencial ou teleconsulta. Atendimento de segunda a sexta, das 8h às 18h.</p>
+  <a href="https://wa.me/5541999999999" class="btn-gold">Agendar pelo WhatsApp</a>
+  <div class="contact-info">
+    <div class="contact-item"><strong>Telefone</strong>(41) 3333-4444</div>
+    <div class="contact-item"><strong>Email</strong>contato@drrafaelmendes.com.br</div>
+    <div class="contact-item"><strong>Endereço</strong>Av. Batel, 1230 — Curitiba, PR</div>
+    <div class="contact-item"><strong>Horário</strong>Seg–Sex, 8h–18h</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Dr. Rafael Mendes — CRM-PR 45.231 · Desenvolvido por Samuel Dev</p>
+</footer>
+
+</body>
+</html>
